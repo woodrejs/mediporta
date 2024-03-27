@@ -1,5 +1,7 @@
 import { QueryClient } from "react-query";
 
 export const client = new QueryClient({
-  defaultOptions: { queries: { staleTime: 30000 } },
+  defaultOptions: {
+    queries: { staleTime: 30000, refetchOnWindowFocus: false },
+  },
 });
