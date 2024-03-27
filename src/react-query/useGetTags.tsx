@@ -32,8 +32,11 @@ const getTags = async (context: QueryFunctionContext<QueryKey>) => {
 };
 
 export const useGetTags = (props?: Partial<Params>) => {
-  return useQuery<Response, AxiosError, Response, QueryKey>([props, "TAGS"], {
-    queryFn: getTags,
-    onError: (err) => showErrorToast(err.message),
-  });
+  return useQuery<Response, AxiosError<API.ErrorResponse>, Response, QueryKey>(
+    [props, "TAGS"],
+    {
+      queryFn: getTags,
+      onError: (err) => showErrorToast(err.response?.data.error_message),
+    }
+  );
 };

@@ -1,4 +1,10 @@
 declare namespace API {
+  type ErrorResponse = {
+    error_id: 502;
+    error_message: string;
+    error_name: string;
+  };
+
   type ExternalLink = {
     type:
       | "website"
