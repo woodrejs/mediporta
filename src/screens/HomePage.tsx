@@ -1,31 +1,17 @@
 import {
-  Box,
   Paper,
   Table,
-  TableBody as MuiTableBody,
   TableCell,
   TableContainer,
   TableHead,
-  TablePagination,
   TablePaginationProps,
   TableRow,
   TableSortLabel,
 } from "@mui/material";
 import { Params, useGetTags } from "../react-query/useGetTags";
 import React from "react";
-import styled from "@emotion/styled";
+import * as Style from "./HomePage.style";
 import { Loader } from "../components/Loader";
-
-const Container = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 50px;
-`;
-const TableBody = styled(MuiTableBody)`
-  height: 300px;
-`;
 
 const normalizePageNumber = (page: number) => {
   const pageShift = 1;
@@ -57,8 +43,8 @@ export const HomePage = () => {
   };
 
   return (
-    <Container>
-      <TablePagination
+    <Style.Container>
+      <Style.TablePagination
         rowsPerPageOptions={[5, 10, 25]}
         count={data?.quota_max || 0}
         rowsPerPage={pageSize}
@@ -91,7 +77,7 @@ export const HomePage = () => {
             </TableRow>
           </TableHead>
 
-          <TableBody>
+          <Style.TableBody>
             {!data && !isFetching ? (
               <TableCell colSpan={2} align="center">
                 No tags
@@ -110,9 +96,9 @@ export const HomePage = () => {
                   </TableRow>
                 ))
               : null}
-          </TableBody>
+          </Style.TableBody>
         </Table>
       </TableContainer>
-    </Container>
+    </Style.Container>
   );
 };
