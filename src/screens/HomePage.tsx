@@ -91,8 +91,8 @@ export const HomePage = () => {
             {data
               ? data?.items.map((item) => (
                   <TableRow key={item.name}>
-                    <TableCell colSpan={1}>{item.name}</TableCell>
-                    <TableCell colSpan={1}>{item.count}</TableCell>
+                    <TableCell style={{ width: "50%" }}>{item.name}</TableCell>
+                    <TableCell style={{ width: "50%" }}>{item.count}</TableCell>
                   </TableRow>
                 ))
               : null}
