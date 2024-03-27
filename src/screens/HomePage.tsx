@@ -34,7 +34,7 @@ const normalizePageNumber = (page: number) => {
 
 export const HomePage = () => {
   const [sortBy, setSortBy] = React.useState<Params["sort"]>("name");
-  const [sortOrder, setSortOrder] = React.useState<Params["order"]>("asc");
+  const [sortOrder, setSortOrder] = React.useState<Params["order"]>("desc");
   const [pageSize, setPageSize] = React.useState(10);
   const [page, setPage] = React.useState(0);
 
